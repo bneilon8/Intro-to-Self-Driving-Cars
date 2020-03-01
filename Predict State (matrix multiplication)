@@ -1,0 +1,11 @@
+# The current predict state function
+def predict_state_mtx(state, dt):
+    ## TODO: Assume that the state passed in is a Matrix object
+    ## Using a constant velocity model and a transformation matrix
+    ## Create and return the new, predicted state!
+    tx_matrix = matrix.Matrix([ [1, dt], 
+                            [0, 1] ])
+    initial_state = matrix.Matrix([state[0], state[1]])
+    predicted_state = tx_matrix*initial_state
+    
+    return predicted_state

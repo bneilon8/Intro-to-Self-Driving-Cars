@@ -1,0 +1,31 @@
+def transpose(matrix):
+    matrix_transpose = []
+    for c in range(len(matrix[0])):
+        new_row = []
+        for r in range(len(matrix)):
+            new_row.append(matrix[r][c])
+        matrix_transpose.append(new_row)
+    
+    return matrix_transpose
+
+def dot_product(vectorA, vectorB):
+    result = 0
+    
+    for i in range(len(vectorA)):
+        result += vectorA[i] * vectorB[i]
+        
+    return result
+
+def matrix_multiplication(matrixA, matrixB):
+    product = []
+
+    transposeB = transpose(matrixB)
+
+    for r1 in range(len(matrixA)):
+        new_row = []
+        for r2 in range(len(transposeB)):
+            dp = dot_product(matrixA[r1], transposeB[r2])
+            new_row.append(dp)
+        product.append(new_row)
+
+    return product
